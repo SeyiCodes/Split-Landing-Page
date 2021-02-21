@@ -5,7 +5,11 @@
   --right-bg-color: rgba(49, 53, 49, 0.7);
   --right-btn-hover-color: rgba(28, 122, 28, 1);
   --left-btn-hover-color: rgba(0, 67, 156, 1);
+  --hover-width: 80%;
+  --other-width: 20%;
+  --speed: 2000ms;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -96,4 +100,39 @@ h1 {
   background: url('https://images.unsplash.com/photo-1612801799890-4ba4760b6590?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.split.left,
+.split.right,
+.split.left::before,
+.split.right::before {
+  transition: all var(--speed) ease-in-out;
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+    top: 32%;
+  }
+
+  .btn {
+    padding: 1.2rem;
+    width: 12rem;
+  }
 }
